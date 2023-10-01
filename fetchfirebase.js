@@ -29,5 +29,5 @@
         collection,
         query,
         where
-    } from "firebase/firestore";
+    } from "./firebase/firestore";
     const q = query(citiesRef, where("state", "==", "CA"));
