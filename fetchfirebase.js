@@ -54,7 +54,7 @@ async function fetchAndProcessData(index) {
 })
 
 if (resultatsRequete.length<2)
-  conteneur.innerHTML = `
+  exerciceContainer[index].innerHTML = `
  
 <div class="fake-embed">
 
