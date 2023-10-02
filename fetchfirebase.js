@@ -1,3 +1,5 @@
+
+console.log('le script se lance ce batard');
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 const firebaseConfig = {
 
@@ -68,3 +70,10 @@ if (resultatsRequete.length<2)
 
 // Start processing from the first element
 fetchAndProcessData(0);
+
+
+
+
+
+
+
