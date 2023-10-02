@@ -1,33 +1,70 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+const firebaseConfig = {
 
-    // Import the functions you need from the SDKs you need
-    import {
-        initializeApp
-    } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-    import {
-        getAnalytics
-    } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
+  apiKey: "AIzaSyApG0hGeymXUziJIbrWmw_b7KV_CB6bY48",
 
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-        apiKey: "AIzaSyApG0hGeymXUziJIbrWmw_b7KV_CB6bY48",
-        authDomain: "coursgalilee.firebaseapp.com",
-        projectId: "coursgalilee",
-        storageBucket: "coursgalilee.appspot.com",
-        messagingSenderId: "803812027997",
-        appId: "1:803812027997:web:0e2191d417ec5c8aece7b4",
-        measurementId: "G-9EX64XERV3"
-    };
+  authDomain: "coursgalilee.firebaseapp.com",
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+  databaseURL: "https://coursgalilee-default-rtdb.europe-west1.firebasedatabase.app",
 
-    import {
-        collection,
-        query,
-        where
-    } from "./firebase/firestore";
-    const q = query(citiesRef, where("state", "==", "CA"));
+  projectId: "coursgalilee",
+
+  storageBucket: "coursgalilee.appspot.com",
+
+  messagingSenderId: "803812027997",
+
+  appId: "1:803812027997:web:0e2191d417ec5c8aece7b4"
+
+};
+//import { firebase } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+import { getFirestore, getDocs, collection, query, where } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+
+var exerciceContainer = document.querySelectorAll('.exercice');
+console.log('la liste dexo est', exerciceContainer);
+
+function fetchAndProcessData(index) {
+
+
+
+
+  if (index >= exerciceContainer.length) {
+    return; // Stop when all elements have been processed
+  }
+
+  var id = exerciceContainer[index].id;
+
+ 
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const citiesRef = collection(db, "exo(1)");
+ var q = query(citiesRef, where("exercisenumber", "==", id));
+        const querySnapshot = await getDocs(q);
+        console.log(querySnapshot);
+        var resultatsRequete=[];
+        querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  
+ 
+  resultatsRequete.push(doc.data());
+  
+})
+
+if (resultatsRequete.length<2)
+  conteneur.innerHTML = `
+ 
+<div class="fake-embed">
+
+ ${resultatsRequete[Ø].cntenu}
+</div>
+
+`;
+
+  // Continue with the next element
+  fetchAndProcessData(index + 1);
+}
+
+
+// Start processing from the first element
+fetchAndProcessData(0);
