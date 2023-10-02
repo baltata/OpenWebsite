@@ -25,7 +25,7 @@ import { getFirestore, getDocs, collection, query, where } from "https://www.gst
 var exerciceContainer = document.querySelectorAll('.exercice');
 console.log('la liste dexo est', exerciceContainer);
 
-function fetchAndProcessData(index) {
+async function fetchAndProcessData(index) {
 
 
 
