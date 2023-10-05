@@ -103,6 +103,7 @@ console.log("le resultat de la requete a l'xtrieur:",resultatsRequete)
 var inputs=exerciceContainer[index].querySelectorAll('input');
 
 for (let i=0;i<inputs.length;i++) {
+  inputs[i].readOnly = true;
   inputs[i].addEventListener("click", (evt) => {
     evt.preventDefault();
     
