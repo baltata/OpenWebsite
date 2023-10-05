@@ -99,7 +99,23 @@ console.log("le resultat de la requete a l'xtrieur:",resultatsRequete)
 
 
 `;
+ var images = exerciceContainer[index].querySelectorAll("img");
+  console.log("les images sont:",images)
+  
+  for (let i=0;i<images.length;i++) {
+    
+   
 
+  if (images[i].src.includes("https://galilee.ac/pluginfile.php")) {
+console.log(images[i])
+    images[i].style.display = "none";
+    images[i].insertAdjacentHTML("afterend",'<div class="gosabonner goimage">Il faut être connecté pour voir cette image 😔.  <br><a target="_parent" class="awhite" href="https://galilee.ac/login/index.php"> <div class="whitebutton"><b> Connexion</b></div></a> </div></div>')                    
+                                 
+                                 
+                                 
+  
+  
+}}
 var inputs=exerciceContainer[index].querySelectorAll('input');
 
 for (let i=0;i<inputs.length;i++) {
