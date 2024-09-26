@@ -116,23 +116,22 @@ console.log(images[i])
   
   
 }}
-var inputs=exerciceContainer[index].querySelectorAll('input');
+var inputs = exerciceContainer[index].querySelectorAll('input, button'); // Include both input and button elements
 
-for (let i=0;i<inputs.length;i++) {
+for (let i = 0; i < inputs.length; i++) {
   inputs[i].readOnly = true;
   inputs[i].addEventListener("click", (evt) => {
-    evt.preventDefault();
-    
+    evt.preventDefault(); // Prevent the default action of both input and button clicks
+
     var x = exerciceContainer[index].querySelector('.blurredpopup');
     if (x.style.display === "none") {
-      x.style.display = "grid";
+      x.style.display = "grid"; // Show the popup
     } else {
-      x.style.display = "none";
+      x.style.display = "none"; // Hide the popup (if needed)
     }
-    
-    
-  })
+  });
 }
+
 
 
 var closebutton=exerciceContainer[index].querySelector('.close');
