@@ -1,4 +1,3 @@
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 import { getFirestore, getDocs, collection, query, where } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
@@ -76,7 +75,7 @@ console.log("juste avant d'appeller extractdata la valeur de l'id est :",id.toSt
 console.log("le resultat de la requete a l'xtrieur:",resultatsRequete)
 
     if (resultatsRequete.length < 2 && resultatsRequete.length >0 && id!=11119119919191 ) {
-      exerciceContainer[index].innerHTML = `
+      exerciceContainer[index].innerHTML = 
  
      <div class= filter_embedquestion-error">
          
@@ -90,138 +89,3 @@ console.log("le resultat de la requete a l'xtrieur:",resultatsRequete)
     </div>
       </div>
       
-
-
-         
-        
-
-
-
-
-`;
- var images = exerciceContainer[index].querySelectorAll("img");
-  console.log("les images sont:",images)
-  
-  for (let i=0;i<images.length;i++) {
-    
-   
-
-  if (images[i].src.includes("https://galilee.ac/pluginfile.php")) {
-console.log(images[i])
-    images[i].style.display = "none";
-    images[i].insertAdjacentHTML("afterend",'<div class="gosabonner goimage">Il faut être connecté pour voir cette image 😔.  <br><a target="_parent" class="awhite" href="https://galilee.ac/login/index.php"> <div class="whitebutton"><b> Connexion</b></div></a> </div></div>')                    
-                                 
-                                 
-                                 
-  
-  
-}}
-var inputs = exerciceContainer[index].querySelectorAll('input, button'); // Include both input and button elements
-
-for (let i = 0; i < inputs.length; i++) {
-  inputs[i].readOnly = true;
-  inputs[i].addEventListener("click", (evt) => {
-    evt.preventDefault(); // Prevent the default action of both input and button clicks
-
-    var x = exerciceContainer[index].querySelector('.blurredpopup');
-    if (x.style.display === "none") {
-      x.style.display = "grid"; // Show the popup
-    } else {
-      x.style.display = "none"; // Hide the popup (if needed)
-    }
-  });
-}
-
-
-
-var closebutton=exerciceContainer[index].querySelector('.close');
-console.log ("le close span est:",closebutton);
-closebutton.addEventListener("click", () =>{
-
-  var x = exerciceContainer[index].querySelector('.blurredpopup');
-  if (x.style.display === "none") {
-    x.style.display = "grid";
-  } else {
-    x.style.display = "none";
-  }
-
-
-
-}
-)
-
-
-}
-else {
-  exerciceContainer[index].innerHTML = `
-  <div class="filter_embedquestion-error">
-        <div class="conteneurglobal">
-       <!--- <img
-          alt="image"
-          src="https://abonnement.galilee.ac/wp-content/uploads/2022/06/Largeviewport-min.png"
-       
-          class="home-image"
-        />
-        <img
-          alt="image"
-          src="https://abonnement.galilee.ac/wp-content/uploads/2022/06/mediumviewport-min.png"
-    
-          class="home-image1"
-        />
-        <img
-          alt="image"
-          src="https://abonnement.galilee.ac/wp-content/uploads/2022/06/Smallviewport-min.png"
-      
-          class="home-image2"
-        /> 
-      -->
-      <picture>
-          <source media="(max-width: 549px)" srcset="https://abonnement.galilee.ac/wp-content/uploads/2022/06/Smallviewport-min.png">
-          <source media="(min-width: 550px) and (max-width: 849px)" srcset="https://abonnement.galilee.ac/wp-content/uploads/2022/06/mediumviewport-min.png">
-          <img src="https://abonnement.galilee.ac/wp-content/uploads/2022/06/Largeviewport-min.png" alt="IfItDoesntMatchAnyMedia">
-      </picture>
-      
-      
-  
-        <div class="textebasique">
-               <span><a href="https://galilee.ac/login/index.php">Se connecter</a> / <a href="https://galilee.ac/login/index.php">Créer un compte gratuit</a></span>
-          
-          <span class="eb-sso-cont-login-btns">
-                 <!--   <a href="https://accounts.google.com/o/oauth2/auth?response_type=code&amp;redirect_uri=https%3A%2F%2Fabonnement.galilee.ac&amp;client_id=961511907345-a07tf5v1golq3flhuviad1h4l4nagqs0.apps.googleusercontent.com&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&amp;access_type=online&amp;approval_prompt=auto&amp;state=IiI%3D">
-  <img class="eb-sso-social-login-icon" src="https://abonnement.galilee.ac/wp-content/uploads/2022/06/ic_google_plus.jpg"></a> -->
-  
-  
-  
-             <!--       <a href="https://www.facebook.com/v2.10/dialog/oauth?client_id=1169187163922902&amp;state=cc9ab6cc06e46dcb2e79e570e7afaab1&amp;response_type=code&amp;sdk=php-sdk-5.7.0&amp;redirect_uri=https%3A%2F%2Fabonnement.galilee.ac%2F%3Faction%3Dfacebook_login&amp;scope=email">
-                     <img class="eb-sso-social-login-icon" src="https://abonnement.galilee.ac/wp-content/uploads/2022/06/facebook.png">
-                    </a>-->
-          </span></div>
-          </div>
-  </div>
-
- 
-  `;
-
-
-
-}
-;
-
-    // Continue with the next element
-    fetchAndProcessData(index + 1);
-  }
-
-
-  // Start processing from the first element
-  fetchAndProcessData(0);
-
-
-
-}
-
-
-
-
-
-
-
